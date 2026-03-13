@@ -67,7 +67,7 @@ enum ConnectionState: Equatable {
 // MARK: - Price Level (View-Ready)
 
 struct PriceLevel: Identifiable, Equatable {
-    let id = UUID()
+    var id: Double { price } // Use price as stable ID for efficient SwiftUI diffing
     let price: Double
     let size: Double
     let orderCount: Int
