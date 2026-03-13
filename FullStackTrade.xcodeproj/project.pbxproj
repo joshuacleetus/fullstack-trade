@@ -8,11 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		070496EF58D949FEB539CED5 /* HyperliquidWebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1228F0CCEBA0FAB675880F32 /* HyperliquidWebSocketService.swift */; };
+		233300EA7690686A4F187EA4 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB572AE1AC10B8CE24B2C4EE /* SmallWidgetView.swift */; };
 		25541F203CAF2997C6E8EB0C /* OrderBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F61DF91F809A9A0613FF1C /* OrderBookView.swift */; };
+		39F3BD571EA4AB06EF2B83A4 /* HyperliquidAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF304D78C9B66B1E672D4EFB /* HyperliquidAPIService.swift */; };
+		3BBB454470DCA95B37EE87E5 /* OrderBookTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7651C24F5E39916885791FA2 /* OrderBookTimelineProvider.swift */; };
 		46687F23F87B9942432C48EB /* OrderBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409B5817074F2002BB2EA73 /* OrderBookViewModel.swift */; };
 		47FB4F3A372DADD0DD367BAD /* PriceLevelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC343396C6BA1D81D2A9BF7 /* PriceLevelRow.swift */; };
+		50CDD1AE5CC8E55B755E5D87 /* FullStackTradeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478152848CA40871C9E37A50 /* FullStackTradeWidget.swift */; };
 		55CC3A3582A7BF770CEC23E1 /* OrderBookViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B40D2059F8BCBF043C5662 /* OrderBookViewModelTests.swift */; };
+		6A6B9B0CE52D834612EFA73A /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE225C935115F860C698F6F /* MediumWidgetView.swift */; };
+		6EF35A263E1B5773A937BB26 /* OrderBookEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6856DC76980542734B0C58B /* OrderBookEntry.swift */; };
 		8C0D7FC5CA414AC75A4DF17D /* MockWebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF255E9C18BF8C9424DA03 /* MockWebSocketService.swift */; };
+		8CC6BB38BE1FE3492EDC5D53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 694B41085F374840FE4538ED /* Assets.xcassets */; };
 		97A9F2BC38FC5649D39A6ED5 /* WebSocketModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB667DAB67D3DE9A229B2C7 /* WebSocketModels.swift */; };
 		9DE9643B27DE769149CFF57C /* FullStackTradeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC21FED252ED9573621A78A /* FullStackTradeApp.swift */; };
 		A5A7AC5DA6CBDE9EFB4E2963 /* OrderBookModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FC9C30606BCA4C476FFF69 /* OrderBookModels.swift */; };
@@ -21,10 +28,18 @@
 		B821AA5AF503CA0C7E922E02 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D3E28C3852C5AC977E355D /* ModelTests.swift */; };
 		BC270DE2ED4C6F2E24D51864 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F616736CDF12E5B8BC9BD /* Colors.swift */; };
 		CB63A465B14CFF201347E159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D3F43BF318DE99F8DADC264 /* Assets.xcassets */; };
+		CF76B4CF6C65F166F8A65EBA /* FullStackTradeWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 000D9368543AAC96A16FB96E /* FullStackTradeWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EFEADF3285223EAD05394A0F /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361B1C34A9F11BA491D8CA0C /* IntegrationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3B70B4374B928DCFFA742636 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56BDF0C28BBF9D7BDE1D59B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5ABC2A3F8CFB82193EF45A0;
+			remoteInfo = FullStackTradeWidget;
+		};
 		71DAA6A7F44DF778BA1DA463 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56BDF0C28BBF9D7BDE1D59B4 /* Project object */;
@@ -41,25 +56,47 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4EEBB321648E1870356A5F74 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CF76B4CF6C65F166F8A65EBA /* FullStackTradeWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		000D9368543AAC96A16FB96E /* FullStackTradeWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FullStackTradeWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1228F0CCEBA0FAB675880F32 /* HyperliquidWebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperliquidWebSocketService.swift; sourceTree = "<group>"; };
 		14D3E28C3852C5AC977E355D /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		2B5F616736CDF12E5B8BC9BD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		361B1C34A9F11BA491D8CA0C /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
+		478152848CA40871C9E37A50 /* FullStackTradeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullStackTradeWidget.swift; sourceTree = "<group>"; };
 		4FB667DAB67D3DE9A229B2C7 /* WebSocketModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketModels.swift; sourceTree = "<group>"; };
+		694B41085F374840FE4538ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F61DF91F809A9A0613FF1C /* OrderBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookView.swift; sourceTree = "<group>"; };
-		77884BF55D3408AD78AE939D /* FullStack Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FullStack Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7651C24F5E39916885791FA2 /* OrderBookTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookTimelineProvider.swift; sourceTree = "<group>"; };
+		77884BF55D3408AD78AE939D /* FullStackTrade.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FullStackTrade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC21FED252ED9573621A78A /* FullStackTradeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullStackTradeApp.swift; sourceTree = "<group>"; };
+		7DE225C935115F860C698F6F /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
 		8409B5817074F2002BB2EA73 /* OrderBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewModel.swift; sourceTree = "<group>"; };
 		8B06629AFC7FDA75D731DC3F /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		8D3F43BF318DE99F8DADC264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94FC9C30606BCA4C476FFF69 /* OrderBookModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookModels.swift; sourceTree = "<group>"; };
-		98E2F2AB351E3D268D4E1CEA /* FullStackTradeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FullStackTradeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E2F2AB351E3D268D4E1CEA /* FullStackTradeTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FullStackTradeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF255E9C18BF8C9424DA03 /* MockWebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebSocketService.swift; sourceTree = "<group>"; };
+		C6856DC76980542734B0C58B /* OrderBookEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookEntry.swift; sourceTree = "<group>"; };
+		CB572AE1AC10B8CE24B2C4EE /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
 		D0B40D2059F8BCBF043C5662 /* OrderBookViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewModelTests.swift; sourceTree = "<group>"; };
-		D283689F689BDCB75610EC71 /* FullStackTradeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FullStackTradeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D283689F689BDCB75610EC71 /* FullStackTradeUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FullStackTradeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE207C17005F6233CD5785A /* OrderBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookUITests.swift; sourceTree = "<group>"; };
 		FAC343396C6BA1D81D2A9BF7 /* PriceLevelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLevelRow.swift; sourceTree = "<group>"; };
+		FF304D78C9B66B1E672D4EFB /* HyperliquidAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperliquidAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -80,12 +117,27 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		6DF9D3145DD91EB579B26BAB /* FullStackTradeWidget */ = {
+			isa = PBXGroup;
+			children = (
+				694B41085F374840FE4538ED /* Assets.xcassets */,
+				478152848CA40871C9E37A50 /* FullStackTradeWidget.swift */,
+				FF304D78C9B66B1E672D4EFB /* HyperliquidAPIService.swift */,
+				7DE225C935115F860C698F6F /* MediumWidgetView.swift */,
+				C6856DC76980542734B0C58B /* OrderBookEntry.swift */,
+				7651C24F5E39916885791FA2 /* OrderBookTimelineProvider.swift */,
+				CB572AE1AC10B8CE24B2C4EE /* SmallWidgetView.swift */,
+			);
+			path = FullStackTradeWidget;
+			sourceTree = "<group>";
+		};
 		7ABA1B7C46A6E1B09010BF9A = {
 			isa = PBXGroup;
 			children = (
 				D35EDD37187BB2E3525AF388 /* FullStackTrade */,
 				A0F33003AB391CE5EFE9BD0B /* FullStackTradeTests */,
 				9918A46F2BFFFBA299C663A9 /* FullStackTradeUITests */,
+				6DF9D3145DD91EB579B26BAB /* FullStackTradeWidget */,
 				A16C2C83903396F835C6C879 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,9 +173,10 @@
 		A16C2C83903396F835C6C879 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				77884BF55D3408AD78AE939D /* FullStack Trade.app */,
+				77884BF55D3408AD78AE939D /* FullStackTrade.app */,
 				98E2F2AB351E3D268D4E1CEA /* FullStackTradeTests.xctest */,
 				D283689F689BDCB75610EC71 /* FullStackTradeUITests.xctest */,
+				000D9368543AAC96A16FB96E /* FullStackTradeWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,16 +247,18 @@
 			buildPhases = (
 				35EF5F01C0360FAA08CE5741 /* Sources */,
 				0E45850D61471C39126C48E0 /* Resources */,
+				4EEBB321648E1870356A5F74 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B5F1BB85476C3BFF528E9D32 /* PBXTargetDependency */,
 			);
 			name = FullStackTrade;
 			packageProductDependencies = (
 			);
 			productName = FullStackTrade;
-			productReference = 77884BF55D3408AD78AE939D /* FullStack Trade.app */;
+			productReference = 77884BF55D3408AD78AE939D /* FullStackTrade.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EE75E5CAF1A123323A079EC1 /* FullStackTradeUITests */ = {
@@ -224,6 +279,24 @@
 			productReference = D283689F689BDCB75610EC71 /* FullStackTradeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F5ABC2A3F8CFB82193EF45A0 /* FullStackTradeWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD30BE4E296F8B453BC25C7C /* Build configuration list for PBXNativeTarget "FullStackTradeWidget" */;
+			buildPhases = (
+				AADB68A6900FC36ADF32F03B /* Sources */,
+				F0CC5F20B6B3A9601D0288E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FullStackTradeWidget;
+			packageProductDependencies = (
+			);
+			productName = FullStackTradeWidget;
+			productReference = 000D9368543AAC96A16FB96E /* FullStackTradeWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -239,6 +312,10 @@
 					};
 					EE75E5CAF1A123323A079EC1 = {
 						TestTargetID = D33F4EAD7EE4307841F343F4;
+					};
+					F5ABC2A3F8CFB82193EF45A0 = {
+						DevelopmentTeam = USQQZ62WW7;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -259,6 +336,7 @@
 				D33F4EAD7EE4307841F343F4 /* FullStackTrade */,
 				81675D83A33E07B46F50C455 /* FullStackTradeTests */,
 				EE75E5CAF1A123323A079EC1 /* FullStackTradeUITests */,
+				F5ABC2A3F8CFB82193EF45A0 /* FullStackTradeWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -269,6 +347,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB63A465B14CFF201347E159 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0CC5F20B6B3A9601D0288E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CC6BB38BE1FE3492EDC5D53 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +373,19 @@
 				46687F23F87B9942432C48EB /* OrderBookViewModel.swift in Sources */,
 				47FB4F3A372DADD0DD367BAD /* PriceLevelRow.swift in Sources */,
 				97A9F2BC38FC5649D39A6ED5 /* WebSocketModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AADB68A6900FC36ADF32F03B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CDD1AE5CC8E55B755E5D87 /* FullStackTradeWidget.swift in Sources */,
+				39F3BD571EA4AB06EF2B83A4 /* HyperliquidAPIService.swift in Sources */,
+				6A6B9B0CE52D834612EFA73A /* MediumWidgetView.swift in Sources */,
+				6EF35A263E1B5773A937BB26 /* OrderBookEntry.swift in Sources */,
+				3BBB454470DCA95B37EE87E5 /* OrderBookTimelineProvider.swift in Sources */,
+				233300EA7690686A4F187EA4 /* SmallWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +421,11 @@
 			isa = PBXTargetDependency;
 			target = D33F4EAD7EE4307841F343F4 /* FullStackTrade */;
 			targetProxy = F007571362050227F238B20C /* PBXContainerItemProxy */;
+		};
+		B5F1BB85476C3BFF528E9D32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5ABC2A3F8CFB82193EF45A0 /* FullStackTradeWidget */;
+			targetProxy = 3B70B4374B928DCFFA742636 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -400,6 +504,56 @@
 			};
 			name = Debug;
 		};
+		93804661DEEFB611DD0CADD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = USQQZ62WW7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "FullStack Trade Widget";
+				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.widgetkit-extension";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fullstacktrade.app.widget;
+				PRODUCT_NAME = FullStackTradeWidgetExtension;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C96BDA9871EE7ED989A12A9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = USQQZ62WW7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "FullStack Trade Widget";
+				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.widgetkit-extension";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fullstacktrade.app.widget;
+				PRODUCT_NAME = FullStackTradeWidgetExtension;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		DE1A6F41207BFCE5E0F5C28F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -437,7 +591,6 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -462,7 +615,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.9;
@@ -547,7 +699,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -565,7 +716,6 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.9;
@@ -608,6 +758,15 @@
 			buildConfigurations = (
 				DEE1BE4502B31ABAEF03B923 /* Debug */,
 				45CAE3B177F000EB9A3E6582 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DD30BE4E296F8B453BC25C7C /* Build configuration list for PBXNativeTarget "FullStackTradeWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C96BDA9871EE7ED989A12A9B /* Debug */,
+				93804661DEEFB611DD0CADD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
