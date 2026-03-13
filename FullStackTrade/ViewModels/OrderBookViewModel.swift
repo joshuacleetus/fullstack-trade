@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import SwiftUI
+import UIKit
 
 @Observable
 final class OrderBookViewModel {
@@ -23,15 +24,37 @@ final class OrderBookViewModel {
     var maxTotalBids: Double = 1
     var maxTotalAsks: Double = 1
     
+    // MARK: - Price Change Tracking
+    
+    /// Tracks which price levels have recently changed (price -> flash state)
+    var flashingPrices: Set<Double> = []
+    /// Tracks mid-price direction: 1 = up, -1 = down, 0 = unchanged
+    var midPriceDirection: Int = 0
+    /// Previous mid-price for direction calculation
+    private var previousMidPrice: Double = 0
+    /// Previous prices for detecting changes
+    private var previousBidPrices: Set<Double> = []
+    private var previousAskPrices: Set<Double> = []
+    /// Flash timer tasks
+    private var flashTimers: [Double: Task<Void, Never>] = [:]
+    
     // MARK: - Private Properties
     
     private let webSocketService: WebSocketServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     
+    // MARK: - Haptics
+    
+    private let selectionFeedback = UISelectionFeedbackGenerator()
+    private let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+    private let notificationFeedback = UINotificationFeedbackGenerator()
+    
     // MARK: - Initialization
     
     init(webSocketService: WebSocketServiceProtocol = HyperliquidWebSocketService()) {
         self.webSocketService = webSocketService
+        selectionFeedback.prepare()
+        impactFeedback.prepare()
         setupBindings()
     }
     
@@ -43,10 +66,16 @@ final class OrderBookViewModel {
     
     func stop() {
         webSocketService.disconnect()
+        // Cancel all flash timers
+        flashTimers.values.forEach { $0.cancel() }
+        flashTimers.removeAll()
     }
     
     func selectCoin(_ coin: TradingCoin) {
         guard coin != selectedCoin else { return }
+        
+        // Haptic feedback
+        selectionFeedback.selectionChanged()
         
         // Unsubscribe from current
         webSocketService.unsubscribe(
@@ -61,6 +90,11 @@ final class OrderBookViewModel {
             spread = 0
             spreadPercent = 0
             midPrice = 0
+            previousMidPrice = 0
+            midPriceDirection = 0
+            flashingPrices.removeAll()
+            previousBidPrices.removeAll()
+            previousAskPrices.removeAll()
         }
         
         // Update selection and subscribe
@@ -74,11 +108,19 @@ final class OrderBookViewModel {
     func selectPrecision(_ precision: PrecisionOption) {
         guard precision != selectedPrecision else { return }
         
+        // Haptic feedback
+        selectionFeedback.selectionChanged()
+        
         // Unsubscribe from current
         webSocketService.unsubscribe(
             coin: selectedCoin.rawValue,
             nSigFigs: selectedPrecision.rawValue
         )
+        
+        // Clear change tracking
+        previousBidPrices.removeAll()
+        previousAskPrices.removeAll()
+        flashingPrices.removeAll()
         
         // Update selection and subscribe
         selectedPrecision = precision
@@ -103,6 +145,13 @@ final class OrderBookViewModel {
             .sink { [weak self] state in
                 withAnimation(.easeInOut(duration: 0.3)) {
                     self?.connectionState = state
+                }
+                
+                // Haptic on connection state change
+                if state == .connected {
+                    self?.notificationFeedback.notificationOccurred(.success)
+                } else if case .error = state {
+                    self?.notificationFeedback.notificationOccurred(.error)
                 }
                 
                 // Auto-subscribe on connect
@@ -137,6 +186,24 @@ final class OrderBookViewModel {
         newBids.sort { $0.price > $1.price }
         newAsks.sort { $0.price < $1.price }
         
+        // Detect changed price levels
+        let currentBidPrices = Set(newBids.map { $0.price })
+        let currentAskPrices = Set(newAsks.map { $0.price })
+        
+        if !previousBidPrices.isEmpty || !previousAskPrices.isEmpty {
+            // New prices that weren't in the previous snapshot
+            let newBidEntries = currentBidPrices.subtracting(previousBidPrices)
+            let newAskEntries = currentAskPrices.subtracting(previousAskPrices)
+            let changedPrices = newBidEntries.union(newAskEntries)
+            
+            if !changedPrices.isEmpty {
+                triggerFlash(for: changedPrices)
+            }
+        }
+        
+        previousBidPrices = currentBidPrices
+        previousAskPrices = currentAskPrices
+        
         // Calculate cumulative totals
         calculateCumulativeTotals(&newBids)
         calculateCumulativeTotals(&newAsks)
@@ -147,6 +214,17 @@ final class OrderBookViewModel {
         let newSpread = bestAsk > 0 && bestBid > 0 ? bestAsk - bestBid : 0
         let newMidPrice = bestAsk > 0 && bestBid > 0 ? (bestAsk + bestBid) / 2.0 : 0
         let newSpreadPercent = newMidPrice > 0 ? (newSpread / newMidPrice) * 100.0 : 0
+        
+        // Calculate mid-price direction
+        if previousMidPrice > 0 && newMidPrice > 0 {
+            if newMidPrice > previousMidPrice {
+                midPriceDirection = 1
+            } else if newMidPrice < previousMidPrice {
+                midPriceDirection = -1
+            }
+            // If equal, keep previous direction
+        }
+        previousMidPrice = newMidPrice
         
         // Max totals for depth bar scaling
         let maxBid = newBids.last?.total ?? 1
@@ -165,6 +243,30 @@ final class OrderBookViewModel {
             self.maxTotalBids = maxBid
             self.maxTotalAsks = maxAsk
             self.lastUpdateTime = Date(timeIntervalSince1970: TimeInterval(data.time) / 1000.0)
+        }
+    }
+    
+    private func triggerFlash(for prices: Set<Double>) {
+        for price in prices {
+            flashingPrices.insert(price)
+            
+            // Cancel existing timer for this price
+            flashTimers[price]?.cancel()
+            
+            // Auto-remove flash after 400ms
+            flashTimers[price] = Task { @MainActor in
+                try? await Task.sleep(nanoseconds: 400_000_000)
+                guard !Task.isCancelled else { return }
+                withAnimation(.easeOut(duration: 0.3)) {
+                    self.flashingPrices.remove(price)
+                }
+                self.flashTimers.removeValue(forKey: price)
+            }
+        }
+        
+        // Subtle haptic on significant price changes
+        if prices.count > 3 {
+            impactFeedback.impactOccurred(intensity: 0.4)
         }
     }
     

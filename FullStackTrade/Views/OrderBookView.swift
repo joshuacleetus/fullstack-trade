@@ -126,7 +126,8 @@ struct OrderBookView: View {
                     PriceLevelRow(
                         level: level,
                         side: .ask,
-                        maxTotal: viewModel.maxTotalAsks
+                        maxTotal: viewModel.maxTotalAsks,
+                        isFlashing: viewModel.flashingPrices.contains(level.price)
                     )
                 }
             }
@@ -144,7 +145,8 @@ struct OrderBookView: View {
                     PriceLevelRow(
                         level: level,
                         side: .bid,
-                        maxTotal: viewModel.maxTotalBids
+                        maxTotal: viewModel.maxTotalBids,
+                        isFlashing: viewModel.flashingPrices.contains(level.price)
                     )
                 }
             }
@@ -157,13 +159,27 @@ struct OrderBookView: View {
     private var spreadBar: some View {
         HStack {
             HStack(spacing: 4) {
-                Image(systemName: "arrow.up.arrow.down")
+                // Mid-price direction arrow
+                Image(systemName: midPriceArrowIcon)
                     .font(.caption2)
+                    .foregroundColor(midPriceArrowColor)
                 Text("Spread")
                     .font(.caption)
                     .fontWeight(.medium)
             }
             .foregroundColor(.textTertiary)
+            
+            Spacer()
+            
+            if viewModel.midPrice > 0 {
+                // Mid-price display
+                Text(formatMidPrice(viewModel.midPrice))
+                    .font(.system(.caption, design: .monospaced))
+                    .fontWeight(.bold)
+                    .foregroundColor(midPriceArrowColor)
+                    .contentTransition(.numericText())
+                    .animation(.easeInOut(duration: 0.2), value: viewModel.midPrice)
+            }
             
             Spacer()
             
@@ -195,6 +211,24 @@ struct OrderBookView: View {
                 .foregroundColor(.white.opacity(0.05)),
             alignment: .bottom
         )
+    }
+    
+    // MARK: - Mid-Price Direction Helpers
+    
+    private var midPriceArrowIcon: String {
+        switch viewModel.midPriceDirection {
+        case 1: return "arrowtriangle.up.fill"
+        case -1: return "arrowtriangle.down.fill"
+        default: return "arrow.up.arrow.down"
+        }
+    }
+    
+    private var midPriceArrowColor: Color {
+        switch viewModel.midPriceDirection {
+        case 1: return .askGreen
+        case -1: return .bidRed
+        default: return .textTertiary
+        }
     }
     
     // MARK: - Connection Indicator
@@ -230,6 +264,16 @@ struct OrderBookView: View {
             return String(format: "%.2f", spread)
         } else {
             return String(format: "%.4f", spread)
+        }
+    }
+    
+    private func formatMidPrice(_ price: Double) -> String {
+        if price >= 1000 {
+            return String(format: "%.1f", price)
+        } else if price >= 100 {
+            return String(format: "%.2f", price)
+        } else {
+            return String(format: "%.4f", price)
         }
     }
 }

@@ -17,12 +17,20 @@ enum OrderSide {
         case .ask: return .bidRed
         }
     }
+    
+    var flashColor: Color {
+        switch self {
+        case .bid: return .askGreen.opacity(0.3)
+        case .ask: return .bidRed.opacity(0.3)
+        }
+    }
 }
 
 struct PriceLevelRow: View {
     let level: PriceLevel
     let side: OrderSide
     let maxTotal: Double
+    var isFlashing: Bool = false
     
     private var depthPercent: CGFloat {
         guard maxTotal > 0 else { return 0 }
@@ -32,6 +40,13 @@ struct PriceLevelRow: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: side == .bid ? .trailing : .trailing) {
+                // Flash highlight background
+                if isFlashing {
+                    Rectangle()
+                        .fill(side.flashColor)
+                        .transition(.opacity)
+                }
+                
                 // Depth bar background
                 Rectangle()
                     .fill(side.barColor.opacity(0.12))
@@ -61,6 +76,7 @@ struct PriceLevelRow: View {
             }
         }
         .frame(height: 28)
+        .animation(.easeOut(duration: 0.3), value: isFlashing)
     }
 }
 
@@ -69,7 +85,8 @@ struct PriceLevelRow: View {
         PriceLevelRow(
             level: PriceLevel(price: 68420.5, size: 1.234, orderCount: 5, total: 3.567),
             side: .ask,
-            maxTotal: 10.0
+            maxTotal: 10.0,
+            isFlashing: true
         )
         PriceLevelRow(
             level: PriceLevel(price: 68415.0, size: 2.100, orderCount: 3, total: 2.100),
