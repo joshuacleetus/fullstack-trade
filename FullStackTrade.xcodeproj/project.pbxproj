@@ -23,7 +23,7 @@
 		2B5F616736CDF12E5B8BC9BD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4FB667DAB67D3DE9A229B2C7 /* WebSocketModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketModels.swift; sourceTree = "<group>"; };
 		72F61DF91F809A9A0613FF1C /* OrderBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookView.swift; sourceTree = "<group>"; };
-		77884BF55D3408AD78AE939D /* FullStackTrade.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FullStackTrade.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77884BF55D3408AD78AE939D /* FullStack Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FullStack Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC21FED252ED9573621A78A /* FullStackTradeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullStackTradeApp.swift; sourceTree = "<group>"; };
 		8409B5817074F2002BB2EA73 /* OrderBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewModel.swift; sourceTree = "<group>"; };
 		8D3F43BF318DE99F8DADC264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		A16C2C83903396F835C6C879 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				77884BF55D3408AD78AE939D /* FullStackTrade.app */,
+				77884BF55D3408AD78AE939D /* FullStack Trade.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,7 +130,7 @@
 			packageProductDependencies = (
 			);
 			productName = FullStackTrade;
-			productReference = 77884BF55D3408AD78AE939D /* FullStackTrade.app */;
+			productReference = 77884BF55D3408AD78AE939D /* FullStack Trade.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -143,7 +143,6 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					D33F4EAD7EE4307841F343F4 = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -203,9 +202,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = USQQZ62WW7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "FullStack Trade";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -294,9 +294,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = USQQZ62WW7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "FullStack Trade";
 				LD_RUNPATH_SEARCH_PATHS = (
