@@ -40,7 +40,7 @@
 | **Data Source** | [Hyperliquid WebSocket API](https://hyperliquid.gitbook.io/hyperliquid-docs/) (`wss://api.hyperliquid.xyz/ws`) |
 | **Animations** | SwiftUI `withAnimation`, `.contentTransition(.numericText())` |
 | **Haptics** | `UISelectionFeedbackGenerator`, `UIImpactFeedbackGenerator`, `UINotificationFeedbackGenerator` |
-| **Build System** | XcodeGen (`project.yml`) + Xcode 15 |
+| **Build System** | Xcode |
 | **Min Deployment** | iOS 17.0 |
 | **Language** | Swift 5.9 |
 
