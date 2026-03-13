@@ -83,15 +83,13 @@ final class OrderBookViewModel {
             nSigFigs: selectedPrecision.rawValue
         )
         
-        // Clear current data
+        // Clear current data but keep previousMidPrice for initial direction detection
         withAnimation(.easeInOut(duration: 0.2)) {
             bids = []
             asks = []
             spread = 0
             spreadPercent = 0
             midPrice = 0
-            previousMidPrice = 0
-            midPriceDirection = 0
             flashingPrices.removeAll()
             previousBidPrices.removeAll()
             previousAskPrices.removeAll()

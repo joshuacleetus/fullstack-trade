@@ -229,7 +229,7 @@ struct OrderBookView: View {
         switch viewModel.midPriceDirection {
         case 1: return .askGreen
         case -1: return .bidRed
-        default: return .textTertiary
+        default: return .white
         }
     }
     
