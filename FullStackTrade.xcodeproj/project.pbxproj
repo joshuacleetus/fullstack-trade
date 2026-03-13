@@ -16,6 +16,7 @@
 		97A9F2BC38FC5649D39A6ED5 /* WebSocketModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB667DAB67D3DE9A229B2C7 /* WebSocketModels.swift */; };
 		9DE9643B27DE769149CFF57C /* FullStackTradeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC21FED252ED9573621A78A /* FullStackTradeApp.swift */; };
 		A5A7AC5DA6CBDE9EFB4E2963 /* OrderBookModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FC9C30606BCA4C476FFF69 /* OrderBookModels.swift */; };
+		B084D2BF139BC67DFC18F46D /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06629AFC7FDA75D731DC3F /* PerformanceTests.swift */; };
 		B764F5A4FAEEF80F4C337615 /* OrderBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE207C17005F6233CD5785A /* OrderBookUITests.swift */; };
 		B821AA5AF503CA0C7E922E02 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D3E28C3852C5AC977E355D /* ModelTests.swift */; };
 		BC270DE2ED4C6F2E24D51864 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F616736CDF12E5B8BC9BD /* Colors.swift */; };
@@ -48,6 +49,7 @@
 		77884BF55D3408AD78AE939D /* FullStackTrade.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FullStackTrade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC21FED252ED9573621A78A /* FullStackTradeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullStackTradeApp.swift; sourceTree = "<group>"; };
 		8409B5817074F2002BB2EA73 /* OrderBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewModel.swift; sourceTree = "<group>"; };
+		8B06629AFC7FDA75D731DC3F /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		8D3F43BF318DE99F8DADC264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94FC9C30606BCA4C476FFF69 /* OrderBookModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookModels.swift; sourceTree = "<group>"; };
 		98E2F2AB351E3D268D4E1CEA /* FullStackTradeTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FullStackTradeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 				BFCF255E9C18BF8C9424DA03 /* MockWebSocketService.swift */,
 				14D3E28C3852C5AC977E355D /* ModelTests.swift */,
 				D0B40D2059F8BCBF043C5662 /* OrderBookViewModelTests.swift */,
+				8B06629AFC7FDA75D731DC3F /* PerformanceTests.swift */,
 			);
 			path = FullStackTradeTests;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				8C0D7FC5CA414AC75A4DF17D /* MockWebSocketService.swift in Sources */,
 				B821AA5AF503CA0C7E922E02 /* ModelTests.swift in Sources */,
 				55CC3A3582A7BF770CEC23E1 /* OrderBookViewModelTests.swift in Sources */,
+				B084D2BF139BC67DFC18F46D /* PerformanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
