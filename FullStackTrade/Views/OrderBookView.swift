@@ -17,15 +17,16 @@ struct OrderBookView: View {
                 
                 // Order book content
                 GeometryReader { geometry in
+                    let sectionHeight = max(0, (geometry.size.height - 44) / 2)
                     VStack(spacing: 0) {
                         // Asks (top half)
-                        asksSection(height: (geometry.size.height - 44) / 2)
+                        asksSection(height: sectionHeight)
                         
                         // Spread bar
                         spreadBar
                         
                         // Bids (bottom half)
-                        bidsSection(height: (geometry.size.height - 44) / 2)
+                        bidsSection(height: sectionHeight)
                     }
                 }
             }
@@ -320,6 +321,7 @@ struct CoinTab: View {
         }
         .cornerRadius(10)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
+        .accessibilityLabel(coin.displayName)
         .accessibilityIdentifier("coinTab_\(coin.rawValue)")
     }
 }
@@ -347,6 +349,7 @@ struct PrecisionTab: View {
         }
         .cornerRadius(8)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
+        .accessibilityLabel(precision.displayLabel)
         .accessibilityIdentifier("precisionTab_\(precision.rawValue)")
     }
 }

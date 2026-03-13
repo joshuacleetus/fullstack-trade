@@ -45,6 +45,12 @@ final class OrderBookViewModel {
     
     // MARK: - Haptics
     
+    private static let isTesting: Bool = {
+        ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil ||
+        ProcessInfo.processInfo.environment["UI_TESTING"] != nil ||
+        NSClassFromString("XCTestCase") != nil
+    }()
+    
     private let selectionFeedback = UISelectionFeedbackGenerator()
     private let impactFeedback = UIImpactFeedbackGenerator(style: .light)
     private let notificationFeedback = UINotificationFeedbackGenerator()
@@ -53,8 +59,10 @@ final class OrderBookViewModel {
     
     init(webSocketService: WebSocketServiceProtocol = HyperliquidWebSocketService()) {
         self.webSocketService = webSocketService
-        selectionFeedback.prepare()
-        impactFeedback.prepare()
+        if !Self.isTesting {
+            selectionFeedback.prepare()
+            impactFeedback.prepare()
+        }
         setupBindings()
     }
     
@@ -75,7 +83,7 @@ final class OrderBookViewModel {
         guard coin != selectedCoin else { return }
         
         // Haptic feedback
-        selectionFeedback.selectionChanged()
+        if !Self.isTesting { selectionFeedback.selectionChanged() }
         
         // Unsubscribe from current
         webSocketService.unsubscribe(
@@ -107,7 +115,7 @@ final class OrderBookViewModel {
         guard precision != selectedPrecision else { return }
         
         // Haptic feedback
-        selectionFeedback.selectionChanged()
+        if !Self.isTesting { selectionFeedback.selectionChanged() }
         
         // Unsubscribe from current
         webSocketService.unsubscribe(
@@ -146,10 +154,12 @@ final class OrderBookViewModel {
                 }
                 
                 // Haptic on connection state change
-                if state == .connected {
-                    self?.notificationFeedback.notificationOccurred(.success)
-                } else if case .error = state {
-                    self?.notificationFeedback.notificationOccurred(.error)
+                if !Self.isTesting {
+                    if state == .connected {
+                        self?.notificationFeedback.notificationOccurred(.success)
+                    } else if case .error = state {
+                        self?.notificationFeedback.notificationOccurred(.error)
+                    }
                 }
                 
                 // Auto-subscribe on connect
@@ -263,7 +273,7 @@ final class OrderBookViewModel {
         }
         
         // Subtle haptic on significant price changes
-        if prices.count > 3 {
+        if !Self.isTesting && prices.count > 3 {
             impactFeedback.impactOccurred(intensity: 0.4)
         }
     }

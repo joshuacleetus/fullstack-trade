@@ -34,7 +34,7 @@ struct PriceLevelRow: View {
     
     private var depthPercent: CGFloat {
         guard maxTotal > 0 else { return 0 }
-        return CGFloat(level.total / maxTotal)
+        return min(1, max(0, CGFloat(level.total / maxTotal)))
     }
     
     var body: some View {

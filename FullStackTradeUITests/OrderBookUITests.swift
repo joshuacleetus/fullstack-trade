@@ -8,6 +8,7 @@ final class OrderBookUITests: XCTestCase {
         super.setUp()
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchEnvironment["UI_TESTING"] = "1"
         app.launch()
     }
     
@@ -74,11 +75,11 @@ final class OrderBookUITests: XCTestCase {
         XCTAssertTrue(app.buttons["3 sig"].waitForExistence(timeout: 5))
         
         app.buttons["3 sig"].tap()
-        sleep(1)
+        _ = app.buttons["4 sig"].waitForExistence(timeout: 2)
         app.buttons["4 sig"].tap()
-        sleep(1)
+        _ = app.buttons["5 sig"].waitForExistence(timeout: 2)
         app.buttons["5 sig"].tap()
-        sleep(1)
+        _ = app.buttons["2 sig"].waitForExistence(timeout: 2)
         app.buttons["2 sig"].tap()
         
         XCTAssertTrue(app.staticTexts["FullStack Trade"].exists)
@@ -147,9 +148,9 @@ final class OrderBookUITests: XCTestCase {
         
         for _ in 0..<5 {
             app.buttons["ETH"].tap()
-            usleep(300_000)
+            _ = app.buttons["ETH"].waitForExistence(timeout: 1)
             app.buttons["BTC"].tap()
-            usleep(300_000)
+            _ = app.buttons["BTC"].waitForExistence(timeout: 1)
         }
         
         XCTAssertTrue(app.staticTexts["FullStack Trade"].exists)
@@ -162,7 +163,7 @@ final class OrderBookUITests: XCTestCase {
         for _ in 0..<3 {
             for tab in tabs {
                 app.buttons[tab].tap()
-                usleep(200_000)
+                _ = app.buttons[tab].waitForExistence(timeout: 1)
             }
         }
         
