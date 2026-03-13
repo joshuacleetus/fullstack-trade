@@ -265,7 +265,7 @@ final class OrderBookViewModel {
             flashTimers[price] = Task { @MainActor in
                 try? await Task.sleep(nanoseconds: 400_000_000)
                 guard !Task.isCancelled else { return }
-                withAnimation(.easeOut(duration: 0.3)) {
+                _ = withAnimation(.easeOut(duration: 0.3)) {
                     self.flashingPrices.remove(price)
                 }
                 self.flashTimers.removeValue(forKey: price)

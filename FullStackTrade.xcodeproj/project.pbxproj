@@ -21,6 +21,7 @@
 		B821AA5AF503CA0C7E922E02 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D3E28C3852C5AC977E355D /* ModelTests.swift */; };
 		BC270DE2ED4C6F2E24D51864 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F616736CDF12E5B8BC9BD /* Colors.swift */; };
 		CB63A465B14CFF201347E159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D3F43BF318DE99F8DADC264 /* Assets.xcassets */; };
+		EFEADF3285223EAD05394A0F /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361B1C34A9F11BA491D8CA0C /* IntegrationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,18 +45,19 @@
 		1228F0CCEBA0FAB675880F32 /* HyperliquidWebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperliquidWebSocketService.swift; sourceTree = "<group>"; };
 		14D3E28C3852C5AC977E355D /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		2B5F616736CDF12E5B8BC9BD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		361B1C34A9F11BA491D8CA0C /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		4FB667DAB67D3DE9A229B2C7 /* WebSocketModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketModels.swift; sourceTree = "<group>"; };
 		72F61DF91F809A9A0613FF1C /* OrderBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookView.swift; sourceTree = "<group>"; };
-		77884BF55D3408AD78AE939D /* FullStackTrade.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FullStackTrade.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77884BF55D3408AD78AE939D /* FullStack Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FullStack Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC21FED252ED9573621A78A /* FullStackTradeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullStackTradeApp.swift; sourceTree = "<group>"; };
 		8409B5817074F2002BB2EA73 /* OrderBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewModel.swift; sourceTree = "<group>"; };
 		8B06629AFC7FDA75D731DC3F /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		8D3F43BF318DE99F8DADC264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94FC9C30606BCA4C476FFF69 /* OrderBookModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookModels.swift; sourceTree = "<group>"; };
-		98E2F2AB351E3D268D4E1CEA /* FullStackTradeTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FullStackTradeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E2F2AB351E3D268D4E1CEA /* FullStackTradeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FullStackTradeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF255E9C18BF8C9424DA03 /* MockWebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebSocketService.swift; sourceTree = "<group>"; };
 		D0B40D2059F8BCBF043C5662 /* OrderBookViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewModelTests.swift; sourceTree = "<group>"; };
-		D283689F689BDCB75610EC71 /* FullStackTradeUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FullStackTradeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D283689F689BDCB75610EC71 /* FullStackTradeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FullStackTradeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE207C17005F6233CD5785A /* OrderBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookUITests.swift; sourceTree = "<group>"; };
 		FAC343396C6BA1D81D2A9BF7 /* PriceLevelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLevelRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +109,7 @@
 		A0F33003AB391CE5EFE9BD0B /* FullStackTradeTests */ = {
 			isa = PBXGroup;
 			children = (
+				361B1C34A9F11BA491D8CA0C /* IntegrationTests.swift */,
 				BFCF255E9C18BF8C9424DA03 /* MockWebSocketService.swift */,
 				14D3E28C3852C5AC977E355D /* ModelTests.swift */,
 				D0B40D2059F8BCBF043C5662 /* OrderBookViewModelTests.swift */,
@@ -118,7 +121,7 @@
 		A16C2C83903396F835C6C879 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				77884BF55D3408AD78AE939D /* FullStackTrade.app */,
+				77884BF55D3408AD78AE939D /* FullStack Trade.app */,
 				98E2F2AB351E3D268D4E1CEA /* FullStackTradeTests.xctest */,
 				D283689F689BDCB75610EC71 /* FullStackTradeUITests.xctest */,
 			);
@@ -200,7 +203,7 @@
 			packageProductDependencies = (
 			);
 			productName = FullStackTrade;
-			productReference = 77884BF55D3408AD78AE939D /* FullStackTrade.app */;
+			productReference = 77884BF55D3408AD78AE939D /* FullStack Trade.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EE75E5CAF1A123323A079EC1 /* FullStackTradeUITests */ = {
@@ -228,7 +231,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					D33F4EAD7EE4307841F343F4 = {
 						DevelopmentTeam = "";
@@ -291,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFEADF3285223EAD05394A0F /* IntegrationTests.swift in Sources */,
 				8C0D7FC5CA414AC75A4DF17D /* MockWebSocketService.swift in Sources */,
 				B821AA5AF503CA0C7E922E02 /* ModelTests.swift in Sources */,
 				55CC3A3582A7BF770CEC23E1 /* OrderBookViewModelTests.swift in Sources */,
@@ -433,6 +437,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -457,6 +462,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.9;
@@ -541,6 +547,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -558,6 +565,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.9;
