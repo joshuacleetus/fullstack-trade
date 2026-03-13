@@ -105,6 +105,8 @@ struct OrderBookView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             Text("Size")
                 .frame(maxWidth: .infinity, alignment: .trailing)
+            Text("#")
+                .frame(width: 36, alignment: .center)
             Text("Total")
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }

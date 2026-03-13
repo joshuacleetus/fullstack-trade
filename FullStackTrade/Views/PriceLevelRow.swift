@@ -65,6 +65,11 @@ struct PriceLevelRow: View {
                         .foregroundColor(.textPrimary)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                     
+                    // Order count
+                    Text("\(level.orderCount)")
+                        .foregroundColor(.textTertiary)
+                        .frame(width: 36, alignment: .center)
+                    
                     // Total (cumulative)
                     Text(level.formattedTotal)
                         .foregroundColor(.textSecondary)
