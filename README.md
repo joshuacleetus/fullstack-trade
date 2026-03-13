@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/iOS-17.0+-007AFF?logo=apple&logoColor=white" alt="iOS 17+" />
   <img src="https://img.shields.io/badge/Swift-5.9-FA7343?logo=swift&logoColor=white" alt="Swift 5.9" />
   <img src="https://img.shields.io/badge/SwiftUI-4.0-0071E3?logo=swift&logoColor=white" alt="SwiftUI" />
-  <img src="https://img.shields.io/badge/Xcode-15.0+-1575F9?logo=xcode&logoColor=white" alt="Xcode 15+" />
+  <img src="https://img.shields.io/badge/Xcode-26.3+-1575F9?logo=xcode&logoColor=white" alt="Xcode 26.3+" />
 </p>
 
 ---
@@ -40,7 +40,7 @@
 | **Data Source** | [Hyperliquid WebSocket API](https://hyperliquid.gitbook.io/hyperliquid-docs/) (`wss://api.hyperliquid.xyz/ws`) |
 | **Animations** | SwiftUI `withAnimation`, `.contentTransition(.numericText())` |
 | **Haptics** | `UISelectionFeedbackGenerator`, `UIImpactFeedbackGenerator`, `UINotificationFeedbackGenerator` |
-| **Build System** | Xcode |
+| **Build System** | XcodeGen (`project.yml`) + Xcode 26.3 |
 | **Min Deployment** | iOS 17.0 |
 | **Language** | Swift 5.9 |
 
