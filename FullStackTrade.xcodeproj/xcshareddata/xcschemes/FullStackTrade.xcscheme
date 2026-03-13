@@ -34,6 +34,20 @@
                ReferencedContainer = "container:FullStackTrade.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EE75E5CAF1A123323A079EC1"
+               BuildableName = "FullStackTradeUITests.xctest"
+               BlueprintName = "FullStackTradeUITests"
+               ReferencedContainer = "container:FullStackTrade.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -59,6 +73,16 @@
                BlueprintIdentifier = "81675D83A33E07B46F50C455"
                BuildableName = "FullStackTradeTests.xctest"
                BlueprintName = "FullStackTradeTests"
+               ReferencedContainer = "container:FullStackTrade.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EE75E5CAF1A123323A079EC1"
+               BuildableName = "FullStackTradeUITests.xctest"
+               BlueprintName = "FullStackTradeUITests"
                ReferencedContainer = "container:FullStackTrade.xcodeproj">
             </BuildableReference>
          </TestableReference>

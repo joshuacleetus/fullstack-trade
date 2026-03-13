@@ -77,6 +77,7 @@ struct OrderBookView: View {
             .background(Color.bgTertiary)
             .cornerRadius(10)
             .padding(.horizontal, 16)
+            .accessibilityIdentifier("coinSelector")
             
             // Precision Selector
             HStack(spacing: 0) {
@@ -92,6 +93,7 @@ struct OrderBookView: View {
             .background(Color.bgTertiary)
             .cornerRadius(8)
             .padding(.horizontal, 16)
+            .accessibilityIdentifier("precisionSelector")
         }
         .padding(.vertical, 12)
         .background(Color.bgSecondary)
@@ -117,6 +119,7 @@ struct OrderBookView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
         .background(Color.bgSecondary)
+        .accessibilityIdentifier("columnHeaders")
     }
     
     // MARK: - Asks Section
@@ -136,6 +139,7 @@ struct OrderBookView: View {
         }
         .frame(height: height)
         .defaultScrollAnchor(.bottom)
+        .accessibilityIdentifier("asksSection")
     }
     
     // MARK: - Bids Section
@@ -154,6 +158,7 @@ struct OrderBookView: View {
             }
         }
         .frame(height: height)
+        .accessibilityIdentifier("bidsSection")
     }
     
     // MARK: - Spread Bar
@@ -201,6 +206,7 @@ struct OrderBookView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 10)
         .background(Color.bgTertiary)
+        .accessibilityIdentifier("spreadBar")
         .overlay(
             Rectangle()
                 .frame(height: 0.5)
@@ -251,6 +257,7 @@ struct OrderBookView: View {
         .padding(.vertical, 5)
         .background(Color.bgTertiary)
         .cornerRadius(12)
+        .accessibilityIdentifier("connectionIndicator")
     }
     
     private var connectionColor: Color {
@@ -313,6 +320,7 @@ struct CoinTab: View {
         }
         .cornerRadius(10)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
+        .accessibilityIdentifier("coinTab_\(coin.rawValue)")
     }
 }
 
@@ -339,6 +347,7 @@ struct PrecisionTab: View {
         }
         .cornerRadius(8)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
+        .accessibilityIdentifier("precisionTab_\(precision.rawValue)")
     }
 }
 
